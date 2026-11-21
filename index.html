@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Muchi</title>
 <meta name="description" content="The cleanest way to discover over 700 record shops across Japan.">
-<meta name="theme-color" content="#E8560A">
+<meta name="theme-color" content="#1B2150">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Eric Roberts">
 <meta property="og:title" content="Muchi">
@@ -16,8 +16,10 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23E8560A'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23fff' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='%231D1410'/%3E%3C/svg%3E">
 
 <style>:root{color-scheme:light}html,body{margin:0;padding:0;background:#E8560A}img{max-width:100%}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rampart+One&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+<header class="nbar"><a class="nlogo" href="/" aria-label="Muchi home"><span class="ndot" aria-hidden="true"></span>Muchi<span class="jp" lang="ja">レコード</span></a></header>
 
 <style>
 :root {
@@ -2123,6 +2125,229 @@ html { scrollbar-color:var(--er-line-mid) var(--er-wash); }
   <div class="wins" id="wins"></div>
 
 </div>
+<style id="citypop-theme">
+/* ==========================================================================
+   CITY POP THEME for Muchi: 80s Japanese album-cover aesthetics.
+   Pastel sky, striped sunset sun, 4-colour retro stripes, rounded Japanese type,
+   shop cards like cassette J-card labels. Loaded last so it wins over older skins.
+   ========================================================================== */
+:root {
+  --c-navy:#1B2150; --c-sky:#8ED8EC; --c-sky-hi:#D9F3F8; --c-blush:#FFD9E2; --c-cream:#FFF7EA;
+  --c-yellow:#FFCF3F; --c-orange:#FF8A3D; --c-pink:#FF5C93; --c-violet:#7B5CC4; --c-teal:#2BB3B1;
+  --c-stripes:linear-gradient(var(--c-yellow) 0 25%, var(--c-orange) 25% 50%, var(--c-pink) 50% 75%, var(--c-violet) 75% 100%);
+  --c-head:"Rampart One", "M PLUS Rounded 1c", sans-serif;
+  --c-body:"M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", system-ui, sans-serif;
+  --c-bar:58px;
+}
+
+/* ---- top bar: navy with the four retro stripes underneath ---- */
+.nbar {
+  position:fixed; inset:0 0 auto 0; height:var(--c-bar); z-index:80;
+  background:var(--c-navy); display:flex; align-items:center; gap:14px;
+  padding:0 clamp(16px, 4vw, 48px); border:0;
+}
+.nbar::after {
+  content:""; position:absolute; left:0; right:0; top:100%; height:12px; background:var(--c-stripes);
+}
+.nlogo {
+  display:inline-flex; align-items:baseline; gap:10px; text-decoration:none; color:#FFFFFF;
+  font:800 23px/1 var(--c-body); letter-spacing:.02em; font-style:italic;
+}
+.nlogo .jp {
+  font:700 12px/1 var(--c-body); font-style:normal; letter-spacing:.2em; color:var(--c-yellow);
+}
+.ndot { display:none; }
+
+/* ---- grounds ---- */
+html, body { background:var(--c-cream) !important; }
+.digwrap, .desk {
+  color:var(--c-navy) !important; font-family:var(--c-body) !important; background-image:none !important;
+}
+.digwrap { top:calc(var(--c-bar) + 12px) !important; }
+.desk {
+  background:var(--c-cream) !important;
+  background-image:repeating-linear-gradient(0deg, rgba(27,33,80,.035) 0 1px, transparent 1px 6px) !important;
+  padding-top:calc(var(--c-bar) + 34px) !important;
+}
+
+/* ---- intro: city pop sky, striped sun, sea line ---- */
+.digwrap {
+  background:linear-gradient(180deg, var(--c-sky) 0%, var(--c-sky-hi) 46%, var(--c-blush) 62%, #FFE9C9 70%) !important;
+}
+.digwrap::before { /* the striped sunset sun */
+  content:""; position:absolute; z-index:0; width:min(58vh, 72vw); aspect-ratio:1; border-radius:50%;
+  right:clamp(-60px, 4vw, 120px); top:22%;
+  background:linear-gradient(180deg, #FFE45C 0%, var(--c-orange) 55%, var(--c-pink) 100%);
+  -webkit-mask:linear-gradient(180deg, #000 0 56%, transparent 56% 59%, #000 59% 66%, transparent 66% 70%, #000 70% 76%, transparent 76% 81%, #000 81% 86%, transparent 86% 92%, #000 92% 96%, transparent 96%);
+  mask:linear-gradient(180deg, #000 0 56%, transparent 56% 59%, #000 59% 66%, transparent 66% 70%, #000 70% 76%, transparent 76% 81%, #000 81% 86%, transparent 86% 92%, #000 92% 96%, transparent 96%);
+}
+.digwrap::after { /* the sea */
+  content:""; position:absolute; z-index:0; left:0; right:0; top:70%; bottom:0;
+  background:
+    repeating-linear-gradient(180deg, rgba(255,255,255,.55) 0 2px, transparent 2px 14px),
+    linear-gradient(180deg, #4FB9D6 0%, #2A7FB8 100%);
+}
+.digwrap > * { position:relative; z-index:1; }
+.digwrap .wordwrap.city {
+  position:absolute !important; top:40% !important; left:clamp(16px, 7vw, 120px) !important; transform:translateY(-50%);
+  display:flex !important; flex-direction:column; align-items:flex-start !important; max-width:calc(100% - 32px);
+}
+.digwrap .word#wCity {
+  font:400 clamp(5.5rem, 19vw, 14rem)/.95 var(--c-head) !important; letter-spacing:.02em !important;
+  color:#FFFFFF !important; -webkit-text-stroke:0 !important; text-align:left !important; margin:0 !important;
+  text-shadow:5px 5px 0 var(--c-pink), 10px 10px 0 var(--c-violet) !important;
+}
+.digwrap .valueline {
+  font:800 clamp(1.1rem, 2.6vw, 1.9rem)/1.2 var(--c-body) !important; font-style:italic;
+  color:var(--c-navy) !important; margin-top:.5em; display:block; letter-spacing:.02em; text-align:left !important;
+}
+.digwrap .valueline::before {
+  content:"レコード屋さん"; display:block; font:700 .62em/1 var(--c-body); font-style:normal;
+  letter-spacing:.35em; color:var(--c-pink); margin-bottom:.45em;
+}
+.digwrap .mag-foot { padding:0 clamp(16px, 7vw, 120px) 34px !important; justify-content:flex-start !important; min-height:0 !important; }
+.digwrap .mag-actions { justify-content:flex-start !important; gap:14px !important; }
+.digwrap .geo-status { color:#FFFFFF !important; font-family:var(--c-body) !important; }
+
+/* ---- buttons: chunky rounded rectangles, navy outline, coloured drop ---- */
+.mag-search, .desk .btn, .pop .btn, .segbtn {
+  font:800 16px/1 var(--c-body) !important; letter-spacing:.03em;
+  border:3px solid var(--c-navy) !important; border-radius:12px !important;
+  background:#FFFFFF !important; color:var(--c-navy) !important;
+  box-shadow:5px 5px 0 var(--c-navy) !important; transition:transform .06s ease, box-shadow .06s ease;
+}
+.mag-search { padding:15px 26px !important; min-height:0 !important; display:inline-flex !important; align-items:center; justify-content:center !important; }
+.mag-primary { background:var(--c-pink) !important; color:#FFFFFF !important; }
+.mag-primary .go { color:#FFFFFF !important; }
+.mag-secondary .go { color:var(--c-navy) !important; }
+.mag-search:active, .desk .btn:active, .pop .btn:active, .segbtn:active { transform:translate(5px, 5px); box-shadow:0 0 0 var(--c-navy) !important; }
+
+/* ---- directory ---- */
+.desk .win { background:transparent !important; border:0 !important; box-shadow:none !important; max-width:780px !important; }
+.desk .wintop, .desk .headrow, .desk .place, .desk .results-place, .desk .ctl,
+.desk .listcell, .desk .body { border:0 !important; box-shadow:none !important; background:transparent !important; }
+.desk .headrow { padding:0 0 20px !important; gap:14px !important; }
+.desk .ctl::before, .desk .ctl::after, .desk .results-place::before, .desk .results-place::after,
+.desk .ctlbtn::before, .desk .headrow::before, .desk .headrow::after { display:none !important; }
+.desk .results-title, .desk .results-place-btn {
+  font:400 clamp(2.4rem, 6vw, 3.4rem)/1 var(--c-head) !important; letter-spacing:.02em !important;
+  color:var(--c-navy) !important; background:none !important; border:0 !important; text-decoration:none !important;
+  text-shadow:3px 3px 0 var(--c-yellow);
+}
+.desk .ctlbtn {
+  font:800 15px/1 var(--c-body) !important; color:var(--c-navy) !important; background:#FFFFFF !important;
+  border:3px solid var(--c-navy) !important; border-radius:999px !important; padding:9px 16px !important;
+  box-shadow:3px 3px 0 var(--c-teal) !important; text-decoration:none !important;
+}
+.desk .ctlbtn::after { content:" ▾" !important; opacity:.8; }
+
+.desk .shop-search { flex:1 1 260px; }
+.desk #shopSearch {
+  width:100%; font:500 17px/1.3 var(--c-body) !important; color:var(--c-navy) !important;
+  background:#FFFFFF !important; border:3px solid var(--c-navy) !important; border-radius:12px !important;
+  padding:12px 16px !important; box-shadow:5px 5px 0 var(--c-sky) !important;
+}
+.desk #shopSearch::placeholder { color:rgba(27,33,80,.55) !important; }
+.desk #shopSearch:focus { outline:3px solid var(--c-pink) !important; outline-offset:2px; }
+.desk .search-count { color:rgba(27,33,80,.7) !important; font-family:var(--c-body) !important; }
+
+.desk .ctlmenu {
+  background:#FFFFFF !important; border:3px solid var(--c-navy) !important; border-radius:14px !important;
+  box-shadow:6px 6px 0 var(--c-violet) !important; padding:6px !important;
+}
+.desk .ctlmenu button { font:700 15px/1.2 var(--c-body) !important; color:var(--c-navy) !important; background:transparent !important; border-radius:9px !important; }
+.desk .ctlmenu button:hover { background:var(--c-sky-hi) !important; }
+.desk .ctlmenu button[aria-selected="true"] { background:var(--c-yellow) !important; color:var(--c-navy) !important; }
+.desk .ctlmenu button[disabled] { color:rgba(27,33,80,.35) !important; }
+
+/* area headings with a stripe tag; rows as cassette labels */
+.desk #rows { padding:0 8px 40px 0 !important; }
+.desk .area-heading {
+  display:flex; align-items:center; gap:12px; border:0 !important; background:transparent !important; padding:28px 0 12px !important;
+}
+.desk .area-heading::before { content:""; width:10px; height:30px; border-radius:3px; background:var(--c-stripes); flex:none; }
+.desk .area-heading > span:first-child {
+  font:800 1.45rem/1.1 var(--c-body) !important; font-style:italic; color:var(--c-navy) !important; letter-spacing:.01em;
+}
+.desk .area-count {
+  margin-left:auto; font:700 12px/1 var(--c-body) !important; letter-spacing:.14em !important; text-transform:uppercase !important;
+  color:var(--c-pink) !important;
+}
+.desk .row.directory-row {
+  position:relative; background:#FFFFFF !important; border:3px solid var(--c-navy) !important; border-radius:10px !important;
+  box-shadow:4px 4px 0 var(--c-navy) !important; margin:0 0 12px !important; padding:0 !important; overflow:hidden;
+}
+.desk .row.directory-row::before {
+  content:"" !important; display:block !important; position:absolute; right:0; top:0; bottom:0; width:56px;
+  background:var(--c-stripes) !important; border-left:3px solid var(--c-navy); opacity:1 !important;
+  transform:skewX(-14deg); transform-origin:bottom right;
+}
+.desk .row.directory-row .nm {
+  position:relative; width:100%; text-align:left; background:transparent !important; border:0 !important;
+  padding:14px 76px 14px 18px !important; cursor:pointer;
+}
+.desk .row.directory-row .shopname { font:700 17px/1.3 var(--c-body) !important; color:var(--c-navy) !important; text-decoration:none !important; }
+.desk .row.directory-row:hover { background:var(--c-sky-hi) !important; }
+.desk .row.directory-row:hover .shopname { color:var(--c-navy) !important; }
+
+/* ---- shop card: a cassette J-card ---- */
+.pop {
+  background:#FFFFFF !important; color:var(--c-navy) !important; font-family:var(--c-body) !important;
+  border:3px solid var(--c-navy) !important; border-radius:14px !important;
+  box-shadow:8px 8px 0 var(--c-violet) !important; overflow:hidden;
+}
+.pop .pop-bar {
+  position:relative; background:var(--c-navy) !important; border:0 !important; padding:16px 20px 26px !important;
+  display:flex; align-items:center; gap:12px;
+}
+.pop .pop-bar::after { content:""; position:absolute; left:0; right:0; bottom:0; height:10px; background:var(--c-stripes); }
+.pop .pop-title { font:800 1.3rem/1.2 var(--c-body) !important; font-style:italic; color:#FFFFFF !important; order:-1; margin-right:auto; }
+.pop .pop-close {
+  width:32px; height:32px; border-radius:50% !important; border:2px solid #FFFFFF !important;
+  background:transparent !important; color:#FFFFFF !important; font-size:14px !important;
+}
+.pop .pop-body { padding:16px 20px 20px !important; background:transparent !important; }
+.pop .spec dt { font:800 11px/1.6 var(--c-body) !important; letter-spacing:.16em !important; text-transform:uppercase !important; color:var(--c-pink) !important; }
+.pop .spec dd { font:500 15px/1.5 var(--c-body) !important; color:var(--c-navy) !important; }
+.pop .spec dd.shut { color:var(--c-orange) !important; font-weight:800 !important; }
+.pop .pop-links { gap:10px !important; margin-top:14px; }
+.pop .pop-links .btn { font-size:14px !important; padding:9px 14px !important; box-shadow:3px 3px 0 var(--c-navy) !important; }
+.pop .pop-links .btn:first-child { background:var(--c-yellow) !important; }
+
+.desk .mapcard { background:#FFFFFF !important; border:3px solid var(--c-navy) !important; border-radius:14px !important; box-shadow:6px 6px 0 var(--c-sky) !important; }
+
+html { scrollbar-color:var(--c-navy) var(--c-cream); }
+::-webkit-scrollbar-track { background:var(--c-cream) !important; }
+::-webkit-scrollbar-thumb { background:var(--c-navy) !important; border-color:var(--c-cream) !important; box-shadow:none !important; }
+
+@media (max-width:700px) {
+  .nbar { padding:0 16px; }
+  .desk { padding-left:16px !important; padding-right:16px !important; }
+  .desk .shop-search { flex:none !important; width:100%; }
+  .digwrap .mag-actions { flex-direction:column; align-items:stretch; width:100%; }
+  .digwrap .wordwrap.city { top:30% !important; }
+  .digwrap::before { top:40%; right:-20vw; }
+  .desk .row.directory-row::before { width:40px; }
+  .desk .row.directory-row .nm { padding:13px 58px 13px 16px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mag-search, .desk .btn, .pop .btn { transition:none !important; }
+}
+
+/* sticky area headings need a solid ground so rows don't show through */
+.desk .area-heading { position:sticky !important; top:0 !important; z-index:5 !important; background:var(--c-cream) !important; margin:0 -10px 0 -10px !important; padding-left:10px !important; padding-right:10px !important; }
+
+/* phones: the shop sheet sits above the filters and search, below the top bar */
+@media (max-width:880px) {
+  .wins { z-index:85 !important; }
+  .pop { top:auto !important; max-height:calc(100dvh - (var(--c-bar) + 12px) - 16px) !important; overflow-y:auto !important;
+          border-bottom-left-radius:0 !important; border-bottom-right-radius:0 !important; }
+  .pop .pop-bar { position:sticky; top:0; z-index:2; }
+}
+
+.pop .pop-title { flex:1 1 auto !important; min-width:0; text-align:left !important; white-space:normal !important;
+  overflow:visible !important; text-overflow:clip !important; margin-right:0 !important; }
+</style>
 <script>
 var SHOPS = [{"s": "Atsushi Wakaizumi's Asagaya shop, built on the idea of sound as connection — jazz through folk to avant-garde, chosen by hand.", "src": "ella", "osm": "node/4939871886", "dOK": true, "lOK": true, "n": "Ontoenrism Store", "nja": "オントエンリズムストア", "a": "Suginami", "c": "Tokyo", "lat": 35.7075423, "lng": 139.6351571, "adr": "1-27-7 Asagaya-kita, Suginami-ku, Tokyo, Room 102 Camino Asagaya", "h": "Weekdays: 17:00–20:00 (Closed Wednesdays) / Weekends: 14:00–19:00", "cl": "Closed Wednesdays", "g": ["Jazz", "Soul", "Rock", "Pop", "Country", "Blues", "Japanese", "Avant-garde", "Experimental", "World", "Dance", "Soundtrack"], "inv": 1500, "tel": "+81-3-5356-8322", "ig": "https://www.instagram.com/ontoen_rhythm_store", "w": "https://www.ontoen-store.com/", "new": false, "used": true, "v": "cApr-VbDe5w", "slug": "ontoen-rhythm-store", "tw": "https://twitter.com/q9q9zzzggg"},
 {"s": "A former rice shop in Chofu, now records plus craft beer picked from breweries with a punk and new-wave streak.", "src": "ella", "osm": "", "dOK": true, "lOK": true, "n": "Garageville", "nja": "ガレージビル", "a": "Chofu", "c": "Tokyo", "lat": 35.659038, "lng": 139.573418, "adr": "3-30-30 Nishizunajigaoka, Chofu City, Tokyo", "h": "17:00–21:00 (closed Wed) · Fri 17:00–22:00 · Sat 15:00–22:00 · Sun 15:00–21:00", "cl": "Closed Wed", "g": ["All genres"], "inv": 2000, "tel": "+81-42-498-5367", "ig": "", "w": "", "new": false, "used": true, "v": "JLAFpLu9aO0", "slug": "garageville", "tw": "https://twitter.com/ garageville1 "},
